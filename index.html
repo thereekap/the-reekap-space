@@ -1,0 +1,1262 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The ReeKap Space | Kapil & Reenu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================
+   1. GLOBAL DESIGN CONTROLS
+===================================== */
+
+:root {
+  --navy: #101d2b;
+  --navy-light: #1c3042;
+  --cream: #f8f1e6;
+  --amber: #e7a64b;
+  --rust: #b65f42;
+  --muted: #c0c5c9;
+
+  --page-width: 1200px;
+  --page-padding: 7%;
+  --section-space: 95px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  background: var(--navy);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+
+/* =====================================
+   2. INDIVIDUAL IMAGE CONTROLS
+
+   Change zoom and position independently.
+   Zoom: 1 = normal, 1.2 = enlarged.
+===================================== */
+
+/* Main hero photograph */
+.hero-photo {
+  --image-zoom: 1;
+  --image-position: center 42%;
+}
+
+/* Closer, Together photograph */
+.closer-image {
+  --image-zoom: 1;
+  --image-position: center 45%;
+}
+
+/* YouTube photograph */
+.youtube-image {
+  --image-zoom: 1.10;
+  --image-position: center 35%;
+}
+
+/* The ReeKap photograph */
+.reekap-image {
+  --image-zoom: 1.15;
+  --image-position: center 30%;
+}
+
+/* Reenu photograph */
+.reenu-image {
+  --image-zoom: 1.10;
+  --image-position: center 42%;
+}
+
+/* Kapil photograph */
+.kapil-image {
+  --image-zoom: 1;
+  --image-position: center 55%;
+}
+
+
+/* =====================================
+   3. NAVIGATION
+===================================== */
+
+nav {
+  min-height: 85px;
+  padding: 15px var(--page-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: var(--navy);
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 27px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--amber);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-link {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  transition: .3s;
+}
+
+.nav-link:hover {
+  color: var(--amber);
+}
+
+.nav-instagram {
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  padding: 10px 17px;
+  transition: .3s;
+}
+
+.nav-instagram:hover {
+  background: var(--amber);
+  color: var(--navy);
+}
+
+
+/* =====================================
+   4. HERO SECTION
+===================================== */
+
+.hero {
+  min-height: 650px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 65px var(--page-padding);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: rgba(231,166,75,.08);
+  right: -120px;
+  top: -150px;
+}
+
+.hero-content {
+  width: 53%;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1s ease both;
+}
+
+.eyebrow {
+  color: var(--amber);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 6vw, 78px);
+  line-height: 1.12;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: var(--amber);
+  font-style: italic;
+}
+
+.hero-description {
+  max-width: 440px;
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.primary-button {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--navy);
+  padding: 14px 25px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.primary-button:hover {
+  background: var(--cream);
+  transform: translateY(-3px);
+}
+
+.hero-photo {
+  position: absolute;
+  right: 7%;
+  top: 8%;
+  width: 38%;
+  height: 83%;
+  overflow: hidden;
+  border-radius: 48% 48% 5px 5px;
+  border: 1px solid rgba(231,166,75,.5);
+  box-shadow: 0 25px 70px rgba(0,0,0,.4);
+  z-index: 1;
+  animation: fadeUp 1.2s ease both;
+}
+
+.hero-photo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: var(--image-position);
+  transform: scale(var(--image-zoom));
+}
+
+
+/* =====================================
+   5. INTRODUCTION STRIP
+===================================== */
+
+.intro-strip {
+  background: var(--cream);
+  color: var(--navy);
+  text-align: center;
+  padding: 24px 15px;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+
+/* =====================================
+   6. GENERAL LAYOUT
+===================================== */
+
+.container {
+  width: 86%;
+  max-width: var(--page-width);
+  margin: auto;
+}
+
+.section {
+  padding: var(--section-space) 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 4vw, 52px);
+  margin-bottom: 12px;
+}
+
+.section-heading p {
+  max-width: 570px;
+  color: var(--muted);
+  margin: auto;
+}
+
+
+/* =====================================
+   7. CLOSER, TOGETHER
+   FIRST PRIORITY
+===================================== */
+
+.closer-section {
+  background: var(--cream);
+  color: var(--navy);
+  padding: 105px 0;
+}
+
+.closer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.closer-image {
+  height: 490px;
+  overflow: hidden;
+  background: #e5d9c9;
+}
+
+.closer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--image-position);
+  transform: scale(var(--image-zoom));
+}
+
+.closer-copy .eyebrow {
+  color: var(--rust);
+}
+
+.closer-copy h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 5vw, 58px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+}
+
+.closer-copy p {
+  color: #56616b;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.closer-button {
+  display: inline-block;
+  background: var(--navy);
+  color: var(--cream);
+  padding: 15px 25px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 12px;
+  transition: .3s;
+}
+
+.closer-button:hover {
+  background: var(--rust);
+  transform: translateY(-3px);
+}
+
+
+/* =====================================
+   8. YOUTUBE FEATURE
+   SECOND PRIORITY
+===================================== */
+
+.youtube-section {
+  padding: 100px 0;
+  background: var(--navy);
+}
+
+.youtube-card {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  background: var(--navy-light);
+  border: 1px solid rgba(255,255,255,.1);
+  overflow: hidden;
+  transition: .35s;
+}
+
+.youtube-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--amber);
+  box-shadow: 0 18px 45px rgba(0,0,0,.25);
+}
+
+.youtube-card .card-image {
+  height: 390px;
+  overflow: hidden;
+  background: #263b4c;
+}
+
+.youtube-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--image-position);
+  transform: scale(var(--image-zoom));
+  transition: filter .4s;
+}
+
+.youtube-card:hover .card-image img {
+  filter: brightness(1.08);
+}
+
+.youtube-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 45px;
+}
+
+.youtube-content .card-label {
+  color: var(--amber);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.youtube-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.2vw, 39px);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.youtube-content p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.card-link {
+  color: var(--amber);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+/* =====================================
+   9. INSTAGRAM PROFILE SECTION
+===================================== */
+
+.instagram-section {
+  padding: 100px 0;
+  background: #142333;
+}
+
+.instagram-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 45px;
+}
+
+.instagram-heading .heading-copy {
+  text-align: left;
+}
+
+.instagram-heading .heading-copy p {
+  color: var(--muted);
+  max-width: 500px;
+}
+
+.instagram-tab {
+  display: inline-block;
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  padding: 12px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  transition: .3s;
+}
+
+.instagram-tab:hover {
+  background: var(--amber);
+  color: var(--navy);
+}
+
+
+/* PROFILE CARDS */
+
+.world-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.world-card {
+  display: block;
+  background: var(--navy-light);
+  border: 1px solid rgba(255,255,255,.08);
+  overflow: hidden;
+  transition: .35s;
+}
+
+.world-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--amber);
+  box-shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+.card-image {
+  height: 290px;
+  overflow: hidden;
+  background: #263b4c;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--image-position);
+  transform: scale(var(--image-zoom));
+  transition: filter .4s;
+}
+
+.world-card:hover .card-image img {
+  filter: brightness(1.08);
+}
+
+.card-content {
+  padding: 25px;
+}
+
+.card-label {
+  color: var(--amber);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.card-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+
+/* =====================================
+   10. BOTTOM SOCIAL LINKS
+===================================== */
+
+.social-section {
+  text-align: center;
+  padding: 95px 20px;
+}
+
+.social-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.social-section p {
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.social-links a {
+  border: 1px solid rgba(255,255,255,.2);
+  padding: 12px 20px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.social-links a:hover {
+  background: var(--amber);
+  color: var(--navy);
+  border-color: var(--amber);
+}
+
+
+/* =====================================
+   11. FOOTER
+===================================== */
+
+footer {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 30px 15px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+footer strong {
+  color: var(--amber);
+}
+
+
+/* =====================================
+   12. ANIMATIONS
+===================================== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =====================================
+   13. TABLET RESPONSIVE
+===================================== */
+
+@media (max-width: 850px) {
+
+  .hero {
+    min-height: 580px;
+  }
+
+  .hero-content {
+    width: 55%;
+  }
+
+  .hero-photo {
+    right: 4%;
+    width: 39%;
+    height: 75%;
+  }
+
+  .closer-layout {
+    gap: 35px;
+  }
+
+  .world-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .youtube-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .youtube-content {
+    padding: 30px;
+  }
+
+}
+
+
+/* =====================================
+   14. MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 600px) {
+
+  nav {
+    min-height: 70px;
+    padding: 12px 6%;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-link {
+    font-size: 8px;
+    letter-spacing: .7px;
+  }
+
+  .nav-instagram {
+    padding: 8px 10px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    padding: 45px 7%;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding-bottom: 35px;
+  }
+
+  .hero h1 {
+    font-size: 49px;
+  }
+
+  .hero-photo {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: 390px;
+    border-radius: 180px 180px 5px 5px;
+  }
+
+  .intro-strip {
+    font-size: 16px;
+  }
+
+  .container {
+    width: 88%;
+  }
+
+  .closer-section,
+  .youtube-section,
+  .instagram-section {
+    padding: 70px 0;
+  }
+
+  .closer-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .closer-image {
+    height: 380px;
+  }
+
+  .youtube-card {
+    grid-template-columns: 1fr;
+  }
+
+  .youtube-card .card-image {
+    height: 280px;
+  }
+
+  .youtube-content {
+    padding: 28px;
+  }
+
+  .instagram-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .instagram-heading .heading-copy {
+    text-align: left;
+  }
+
+  .world-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-image {
+    height: 320px;
+  }
+
+  .social-section {
+    padding: 70px 20px;
+  }
+
+  .social-section h2 {
+    font-size: 32px;
+  }
+
+}
+
+
+/* =====================================
+   15. SMALL MOBILE SCREENS
+===================================== */
+
+@media (max-width: 380px) {
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .nav-links {
+    gap: 7px;
+  }
+
+  .nav-link {
+    font-size: 7px;
+  }
+
+  .nav-instagram {
+    padding: 7px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVIGATION
+===================================== -->
+
+<nav>
+
+  <a href="#" class="logo">
+    The <span>ReeKap</span> Space.
+  </a>
+
+  <div class="nav-links">
+
+    <a href="#closer" class="nav-link">
+      CLOSER, TOGETHER
+    </a>
+
+    <a href="#instagram" class="nav-link nav-instagram">
+      INSTAGRAM ↓
+    </a>
+
+  </div>
+
+</nav>
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      A DIGITAL HOME BY KAPIL & REENU
+    </div>
+
+    <h1>
+      More Than<br>
+      Just a <span>Social Link.</span>
+    </h1>
+
+    <p class="hero-description">
+      People. Stories. Ideas. Connections.
+
+      Welcome to our little corner of the internet —
+      where we share our world, our work and the
+      things we believe are worth discovering.
+    </p>
+
+    <a href="#closer" class="primary-button">
+      EXPLORE OUR WORLD →
+    </a>
+
+  </div>
+
+
+  <div class="hero-photo">
+
+    <img src="./images/hero-couple.jpg"
+         alt="Kapil and Reenu together">
+
+  </div>
+
+</header>
+
+
+<!-- =====================================
+     INTRODUCTION STRIP
+===================================== -->
+
+<div class="intro-strip">
+  Two People. Many Stories. One Shared Journey.
+</div>
+
+
+
+<!-- =====================================
+     PRIORITY 1: CLOSER, TOGETHER
+===================================== -->
+
+<section class="closer-section" id="closer">
+
+  <div class="container closer-layout">
+
+    <div class="closer-image">
+
+      <img src="./images/closer-together.jpg"
+           alt="A couple sharing a meaningful moment">
+
+    </div>
+
+
+    <div class="closer-copy">
+
+      <div class="eyebrow">
+        A PROJECT CLOSE TO OUR HEART
+      </div>
+
+      <h2>
+        Closer,<br>Together.
+      </h2>
+
+      <p>
+        Relationships don't become stronger simply
+        because we want them to. Sometimes we need
+        the right words, a little understanding and
+        small actions that bring two people closer.
+      </p>
+
+      <p>
+        Closer, Together is a free relationship-help
+        space created to help couples understand each
+        other, reflect honestly and grow together.
+      </p>
+
+      <a class="closer-button"
+         href="https://YOUR-CLOSER-TOGETHER-WEBSITE-URL/"
+         target="_blank" rel="noopener">
+
+        EXPLORE CLOSER, TOGETHER →
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     PRIORITY 2: YOUTUBE
+===================================== -->
+
+<section class="youtube-section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">
+        WATCH OUR WORLD
+      </div>
+
+      <h2>
+        More Than Short Moments.
+      </h2>
+
+      <p>
+        Come beyond the reels. Discover our stories,
+        moments, experiments and everything we're
+        creating together.
+      </p>
+
+    </div>
+
+
+    <a class="youtube-card"
+       href="https://youtube.com/@thereekap"
+       target="_blank" rel="noopener">
+
+
+      <div class="card-image youtube-image">
+
+        <img src="./images/couple-outdoor.jpg"
+             alt="The ReeKap YouTube channel">
+
+      </div>
+
+
+      <div class="youtube-content">
+
+        <div class="card-label">
+          WATCH OUR VIDEOS
+        </div>
+
+        <h3>
+          The ReeKap on YouTube
+        </h3>
+
+        <p>
+          Everyday married life, comedy, conversations
+          and the beautiful madness of being together.
+
+          Join us for the longer stories and moments
+          that make our journey special.
+        </p>
+
+        <span class="card-link">
+          VISIT OUR YOUTUBE CHANNEL →
+        </span>
+
+      </div>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     PRIORITY 3: INSTAGRAM PROFILES
+===================================== -->
+
+<section class="instagram-section" id="instagram">
+
+  <div class="container">
+
+
+    <div class="instagram-heading">
+
+      <div class="heading-copy">
+
+        <div class="eyebrow">
+          FIND US ON INSTAGRAM
+        </div>
+
+        <h2 class="section-heading" style="margin-bottom:10px;">
+          Meet Us Beyond the Stories.
+        </h2>
+
+        <p>
+          Three profiles. Different personalities.
+          One shared journey. Follow the people behind
+          The ReeKap.
+        </p>
+
+      </div>
+
+
+      <a class="instagram-tab"
+         href="https://www.instagram.com/thereekap/"
+         target="_blank" rel="noopener">
+
+        VISIT OUR INSTAGRAM →
+
+      </a>
+
+    </div>
+
+
+
+    <div class="world-grid">
+
+
+      <!-- THE REEKAP -->
+
+      <a class="world-card"
+         href="https://www.instagram.com/thereekap/"
+         target="_blank" rel="noopener">
+
+        <div class="card-image reekap-image">
+
+          <img src="./images/reekap-couple.jpg"
+               alt="The ReeKap">
+
+        </div>
+
+        <div class="card-content">
+
+          <div class="card-label">
+            HUSBAND & WIFE
+          </div>
+
+          <h3>The ReeKap</h3>
+
+          <p>
+            Everyday married life, comedy, little arguments
+            and the beautiful madness of being together.
+          </p>
+
+          <span class="card-link">
+            FOLLOW OUR JOURNEY →
+          </span>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- REENU -->
+
+      <a class="world-card"
+         href="https://www.instagram.com/reenu_kapil_kumar/"
+         target="_blank" rel="noopener">
+
+        <div class="card-image reenu-image">
+
+          <img src="./images/Reenu.jpg"
+               alt="Reenu">
+
+        </div>
+
+        <div class="card-content">
+
+          <div class="card-label">
+            MEET THE PERSON
+          </div>
+
+          <h3>Reenu</h3>
+
+          <p>
+            Her personality, her perspective and her
+            own little place in our shared story.
+          </p>
+
+          <span class="card-link">
+            FOLLOW REENU →
+          </span>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- KAPIL -->
+
+      <a class="world-card"
+         href="https://www.instagram.com/kapilkumar13_/"
+         target="_blank" rel="noopener">
+
+        <div class="card-image kapil-image">
+
+          <img src="./images/Kapil.jpg"
+               alt="Kapil">
+
+        </div>
+
+        <div class="card-content">
+
+          <div class="card-label">
+            MEET THE PERSON
+          </div>
+
+          <h3>Kapil</h3>
+
+          <p>
+            Thoughts, experiences, creativity and the
+            journey of building something meaningful.
+          </p>
+
+          <span class="card-link">
+            FOLLOW KAPIL →
+          </span>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     BOTTOM SOCIAL LINKS
+===================================== -->
+
+<section class="social-section">
+
+  <div class="container">
+
+    <div class="eyebrow">
+      LET'S STAY CONNECTED
+    </div>
+
+    <h2>
+      Find Us Around the Internet.
+    </h2>
+
+    <p>
+      Follow along. Watch. Explore. Say hello.
+    </p>
+
+
+    <div class="social-links">
+
+      <a href="https://www.instagram.com/thereekap/"
+         target="_blank" rel="noopener">
+        INSTAGRAM · THE REEKAP
+      </a>
+
+      <a href="https://www.instagram.com/kapilkumar13_/"
+         target="_blank" rel="noopener">
+        INSTAGRAM · KAPIL
+      </a>
+
+      <a href="https://www.instagram.com/reenu_kapil_kumar/"
+         target="_blank" rel="noopener">
+        INSTAGRAM · REENU
+      </a>
+
+      <a href="https://youtube.com/@thereekap"
+         target="_blank" rel="noopener">
+        YOUTUBE
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+  Made with <strong>love</strong> by Kapil & Reenu.
+
+  <br>
+
+  © 2026 The ReeKap Space. All stories reserved.
+
+</footer>
+
+
+</body>
+</html>
